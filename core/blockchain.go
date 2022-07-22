@@ -22,10 +22,6 @@ func (bc *Blockchain) SendData(data string) {
 	bc.AppendBlock(&newBlock)
 }
 
-/*
-	len在这里不会冗余吗？
-	参数名在函数前是结构函数的语法：https://www.cnblogs.com/sunylat/p/6384721.html
-*/
 func (bc *Blockchain) AppendBlock(newBlock *Block) {
 	if len(bc.Blocks) == 0 {
 		bc.Blocks = append(bc.Blocks, newBlock)
@@ -60,7 +56,3 @@ func isValid(newBlock Block, oldBlock Block) bool {
 	}
 	return true
 }
-
-/*
-	go语言函数名大小写：小写代表方法只能在当前包使用，是私有方法，大写代表公有方法。
-*/
